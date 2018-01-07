@@ -1,0 +1,676 @@
+/*
+This is a text-based game that allows the user to select a level
+from easy to champion, and then tests the user's short term memory.
+The program gives the user a score at the end of each match.
+
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void easy_game();
+void intermediate_game();
+void advanced_game();
+void champion_game();
+void quit_game();
+void main_menu();
+void pause (int);
+
+int score = 0;
+
+
+int main()
+{
+    printf("!!!MEMOREX!!!\n\n");
+    main_menu();
+
+    srand(time(NULL));
+
+return 0;
+}
+
+void main_menu(){
+
+    int iGameChoice = 0;
+
+     printf("MAIN MENU\n\n\t1\tBeginner\n\t2\tIntermediate\n\t3\tAdvanced\n\t4\tChampion\n\n\n\tPress 5 to quit\n\n");
+     scanf("%d", &iGameChoice);
+
+
+
+    if (iGameChoice == 1){
+        system ("cls");
+        easy_game();
+
+
+    }
+    else if (iGameChoice == 2){
+       system ("cls");
+       intermediate_game();
+
+}
+    else if (iGameChoice == 3){
+       system ("cls");
+       advanced_game();
+
+}
+
+     else if (iGameChoice == 4){
+       system ("cls");
+       champion_game();
+
+}
+
+    else if (iGameChoice == 5){
+       system ("cls");
+       exit(0);
+
+}
+
+
+
+}
+
+
+void easy_game(){
+        int i1 = 0;
+        int i2 = 0;
+        int i3 = 0;
+
+        int iResp1 = 0;
+        int iResp2 = 0;
+        int iResp3 = 0;
+
+
+        int iElaspedTime = 0;
+        int iCurrentTime = 0;
+        i1 = rand() % 100;
+        i2 = rand() % 100;
+        i3 = rand() % 100;
+        printf("\nConcentrate on the next three numbers.\n");
+        printf("\n%d\t%d\t%d\n", i1, i2, i3);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 7 );
+        system ("cls");
+        printf("\nEnter each number separated by a space: \n");
+        scanf ("%d%d%d", &iResp1, &iResp2, &iResp3);
+        if(i1 ==iResp1 && i2 == iResp2 && i3 == iResp3){
+            printf("\nCongratulations\n");
+            score = score + 1;
+        }
+            //main_menu();
+        else
+            printf("\nSorry. The correct numbers were %d %d %d\n", i1, i2, i3);
+            pause(3);
+            system ("cls");
+
+        printf("Game 2");
+
+        i1 = rand() % 100;
+        i2 = rand() % 100;
+        i3 = rand() % 100;
+        printf("\nConcentrate on the next three numbers.\n");
+        printf("\n%d\t%d\t%d\n", i1, i2, i3);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 7 );
+        system ("cls");
+        printf("\nEnter each number separated by a space: \n");
+        scanf ("%d%d%d", &iResp1, &iResp2, &iResp3);
+        if(i1 ==iResp1 && i2 == iResp2 && i3 == iResp3){
+            printf("\nCongratulations\n");
+            score = score + 1;
+        }
+            //main_menu();
+        else
+            printf("\nSorry. The correct numbers were %d %d %d\n", i1, i2, i3);
+            pause(3);
+            system ("cls");
+
+         printf("Game 3");
+
+        i1 = rand() % 100;
+        i2 = rand() % 100;
+        i3 = rand() % 100;
+        printf("\nConcentrate on the next three numbers.\n");
+        printf("\n%d\t%d\t%d\n", i1, i2, i3);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 5 );
+        system ("cls");
+        printf("\nEnter each number separated by a space: \n");
+        scanf ("%d%d%d", &iResp1, &iResp2, &iResp3);
+        if(i1 ==iResp1 && i2 == iResp2 && i3 == iResp3){
+            printf("\nCongratulations\n");
+            score = score + 1;
+            printf("your score is %d" ,score);
+        }
+            //main_menu();
+        else{
+            printf("\nSorry. The correct numbers were %d %d %d\n", i1, i2, i3);
+            printf("your score is %d" ,score);
+        }
+            pause(3);
+            system ("cls");
+
+
+
+            main_menu();
+    }
+
+void intermediate_game(){
+        int i1 = 0;
+        int i2 = 0;
+        int i3 = 0;
+        int i4 = 0;
+
+        int iResp1 = 0;
+        int iResp2 = 0;
+        int iResp3 = 0;
+        int iResp4 = 0;
+
+        int iElaspedTime = 0;
+        int iCurrentTime = 0;
+
+        printf("game 1");
+        i1 = rand() % 100;
+        i2 = rand() % 100;
+        i3 = rand() % 100;
+        i4 = rand() % 100;
+        printf("\nConcentrate on the next four numbers.\n");
+        printf("\n%d\t%d\t%d\t%d\n", i1, i2, i3, i4);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 10 );
+        system ("cls");
+        printf("\nEnter each number separated by a space: ");
+        scanf ("%d%d%d%d", &iResp1, &iResp2, &iResp3, &iResp4);
+        if(i1 ==iResp1 && i2 == iResp2 && i3 == iResp3 && i4 == iResp4){
+            printf("\nCongratulations\n");
+            score = score + 1;
+        }
+        else
+            printf("\nSorry. The correct numbers were %d %d %d %d\n", i1, i2, i3, i4);
+
+            pause(3);
+            system ("cls");
+
+        printf("game 2");
+        i1 = rand() % 100;
+        i2 = rand() % 100;
+        i3 = rand() % 100;
+        i4 = rand() % 100;
+        printf("\nConcentrate on the next four numbers.\n");
+        printf("\n%d\t%d\t%d\t%d\n", i1, i2, i3, i4);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 9 );
+        system ("cls");
+        printf("\nEnter each number separated by a space: ");
+        scanf ("%d%d%d%d", &iResp1, &iResp2, &iResp3, &iResp4);
+        if(i1 ==iResp1 && i2 == iResp2 && i3 == iResp3 && i4 == iResp4){
+            printf("\nCongratulations\n");
+            score = score + 1;
+        }
+        else
+            printf("\nSorry. The correct numbers were %d %d %d %d\n", i1, i2, i3, i4);
+
+            pause(3);
+            system ("cls");
+
+        printf("game 3");
+        i1 = rand() % 100;
+        i2 = rand() % 100;
+        i3 = rand() % 100;
+        i4 = rand() % 100;
+        printf("\nConcentrate on the next four numbers.\n");
+        printf("\n%d\t%d\t%d\t%d\n", i1, i2, i3, i4);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 7 );
+        system ("cls");
+        printf("\nEnter each number separated by a space: ");
+        scanf ("%d%d%d%d", &iResp1, &iResp2, &iResp3, &iResp4);
+        if(i1 ==iResp1 && i2 == iResp2 && i3 == iResp3 && i4 == iResp4){
+            printf("\nCongratulations\n");
+            score = score + 1;
+            printf("Your score is %d", score);
+        }
+        else{
+            printf("\nSorry. The correct numbers were %d %d %d %d\n", i1, i2, i3, i4);
+            printf("Your score is %d", score);
+        }
+
+            pause(3);
+            system ("cls");
+
+            main_menu();
+    }
+
+
+
+void advanced_game(){
+        int i1 = 0;
+        int i2 = 0;
+        int i3 = 0;
+        int i4 = 0;
+
+        int iResp1 = 0;
+        int iResp2 = 0;
+        int iResp3 = 0;
+        int iResp4 = 0;
+
+        int iElaspedTime = 0;
+        int iCurrentTime = 0;
+
+
+        i1 = rand() % 100 + 1;
+        i2 = rand() % 50;
+        i3 = rand() % 50;
+        i4 = rand() % 100 + 1;
+        printf("Game 1");
+        printf("\nConcentrate on the next four numbers.\n");
+
+        pause(3);
+        system("cls");
+
+        //first number flashes
+        printf("\n%d\n", i1);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 4 );
+        system ("cls");
+
+        //second number flashes
+        printf("\n%d\n", i2);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 4 );
+        system ("cls");
+
+        //third number flashes
+        printf("\n%d\n", i3);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 4 );
+        system ("cls");
+
+        //fourth number flashes
+        printf("\n%d\n", i4);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 4 );
+        system ("cls");
+
+
+
+
+        printf("\nEnter each number separated by a space: ");
+        scanf ("%d%d%d%d", &iResp1, &iResp2, &iResp3, &iResp4);
+        if(i1 ==iResp1 && i2 == iResp2 && i3 == iResp3 && i4 == iResp4){
+            printf("\nCongratulations\n");
+            score = score + 1;
+        }
+        else
+            printf("\nSorry. The correct numbers were %d %d %d %d\n", i1, i2, i3, i4);
+
+            pause(3);
+            system ("cls");
+
+
+        i1 = rand() % 100;
+        i2 = rand() % 100;
+        i3 = rand() % 100;
+        i4 = rand() % 100;
+        printf("Game 2");
+        printf("\nConcentrate on the next four numbers.\n");
+
+        pause(3);
+        system("cls");
+
+        //first number flashes
+        printf("\n%d\n", i1);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 4 );
+        system ("cls");
+
+        //second number flashes
+        printf("\n%d\n", i2);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 4 );
+        system ("cls");
+
+        //third number flashes
+        printf("\n%d\n", i3);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 4 );
+        system ("cls");
+
+        //fourth number flashes
+        printf("\n%d\n", i4);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 4 );
+        system ("cls");
+
+
+
+
+        printf("\nEnter each number separated by a space: ");
+        scanf ("%d%d%d%d", &iResp1, &iResp2, &iResp3, &iResp4);
+        if(i1 ==iResp1 && i2 == iResp2 && i3 == iResp3 && i4 == iResp4){
+            printf("\nCongratulations\n");
+            score = score + 1;
+        }
+        else
+            printf("\nSorry. The correct numbers were %d %d %d %d\n", i1, i2, i3, i4);
+
+            pause(3);
+            system ("cls");
+
+        i1 = rand() % 100;
+        i2 = rand() % 100;
+        i3 = rand() % 100;
+        i4 = rand() % 100;
+        printf("Game 3");
+        printf("\nConcentrate on the next four numbers.\n");
+
+        pause(3);
+        system("cls");
+
+        //first number flashes
+        printf("\n%d\n", i1);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 4 );
+        system ("cls");
+
+        //second number flashes
+        printf("\n%d\n", i2);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 4 );
+        system ("cls");
+
+        //third number flashes
+        printf("\n%d\n", i3);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 4 );
+        system ("cls");
+
+        //fourth number flashes
+        printf("\n%d\n", i4);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 4 );
+        system ("cls");
+
+
+
+
+        printf("\nEnter each number separated by a space: ");
+        scanf ("%d%d%d%d", &iResp1, &iResp2, &iResp3, &iResp4);
+        if(i1 ==iResp1 && i2 == iResp2 && i3 == iResp3 && i4 == iResp4){
+            printf("\nCongratulations\n");
+            score = score + 1;
+        }
+        else
+            printf("\nSorry. The correct numbers were %d %d %d %d\n", i1, i2, i3, i4);
+
+            pause(3);
+            system ("cls");
+
+        i1 = rand() % 100;
+        i2 = rand() % 100;
+        i3 = rand() % 100;
+        i4 = rand() % 100;
+        printf("Game 4");
+        printf("\nConcentrate on the next four numbers.\n");
+
+        pause(3);
+        system("cls");
+
+        //first number flashes
+        printf("\n%d\n", i1);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 4 );
+        system ("cls");
+
+        //second number flashes
+        printf("\n%d\n", i2);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 4 );
+        system ("cls");
+
+        //third number flashes
+        printf("\n%d\n", i3);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 4 );
+        system ("cls");
+
+        //fourth number flashes
+        printf("\n%d\n", i4);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 4 );
+        system ("cls");
+
+
+
+
+        printf("\nEnter each number separated by a space: ");
+        scanf ("%d%d%d%d", &iResp1, &iResp2, &iResp3, &iResp4);
+        if(i1 ==iResp1 && i2 == iResp2 && i3 == iResp3 && i4 == iResp4){
+            printf("\nCongratulations\n");
+            score = score + 1;
+            printf("Your score is %d",score);
+        }
+        else{
+            printf("\nSorry. The correct numbers were %d %d %d %d\n", i1, i2, i3, i4);
+            printf("Your score is %d", score);
+        }
+
+            pause(3);
+            system ("cls");
+
+
+            main_menu();
+    }
+
+void champion_game(){
+        int i1 = 0;
+        int i2 = 0;
+        int i3 = 0;
+        int i4 = 0;
+        int i5 = 0;
+
+        int iResp1 = 0;
+        int iResp2 = 0;
+        int iResp3 = 0;
+        int iResp4 = 0;
+        int iResp5 = 0;
+
+        int iElaspedTime = 0;
+        int iCurrentTime = 0;
+        i1 = rand() % 100;
+        i2 = rand() % 100;
+        i3 = rand() % 100;
+        i4 = rand() % 100;
+        i5 = rand() % 100;
+
+        printf("Round 1");
+        printf("\nConcentrate on the next five numbers.\n");
+
+        pause(3);
+        system("cls");
+
+        //first number flashes
+        printf("\n%d\n", i1);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 3 );
+        system ("cls");
+
+        //second number flashes
+        printf("\n%d\n", i2);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 3 );
+        system ("cls");
+
+        //third number flashes
+        printf("\n%d\n", i3);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 3 );
+        system ("cls");
+
+        //fourth number flashes
+        printf("\n%d\n", i4);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 3 );
+        system ("cls");
+
+        //fifth number flashes
+        printf("\n%d\n", i5);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 3 );
+        system ("cls");
+
+
+        printf("\nEnter each number separated by a space: ");
+        scanf ("%d%d%d%d%d", &iResp1, &iResp2, &iResp3, &iResp4, &iResp5);
+        if(i1 ==iResp1 && i2 == iResp2 && i3 == iResp3 && i4 == iResp4 && i5 == iResp5)
+            printf("\nCongratulations\n");
+        else
+            printf("\nSorry. The correct numbers were %d %d %d  %d %d\n", i1, i2, i3, i4 , i5);
+
+            pause(3);
+            system ("cls");
+
+
+        printf("round 2");
+
+        printf("\nConcentrate on the next five numbers.\n");
+
+        pause(3);
+        system("cls");
+
+        //first number flashes
+        printf("\n%d\n", i1);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 1 );
+        system ("cls");
+
+        //second number flashes
+        printf("\n%d\n", i2);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 1 );
+        system ("cls");
+
+        //third number flashes
+        printf("\n%d\n", i3);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 1 );
+        system ("cls");
+
+        //fourth number flashes
+        printf("\n%d\n", i4);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 1 );
+        system ("cls");
+
+        //fifth number flashes
+        printf("\n%d\n", i5);
+        iCurrentTime = time(NULL);
+        do{
+            iElaspedTime = time(NULL);
+    } while ((iElaspedTime - iCurrentTime) < 1 );
+        system ("cls");
+
+
+        printf("\nEnter each number separated by a space: ");
+        scanf ("%d%d%d%d%d", &iResp1, &iResp2, &iResp3, &iResp4, &iResp5);
+        if(i1 ==iResp1 && i2 == iResp2 && i3 == iResp3 && i4 == iResp4 && i5 == iResp5)
+            printf("\nCongratulations\n");
+        else
+            printf("\nSorry. The correct numbers were %d %d %d  %d %d\n", i1, i2, i3, i4 , i5);
+
+            pause(3);
+            system ("cls");
+
+
+
+            main_menu();
+    }
+
+
+void pause (int inNum){
+
+    int iCurrentTime = 0;
+    int iElapsedTime = 0;
+    iCurrentTime = time(NULL);
+    do{
+
+        iElapsedTime = time(NULL);
+    }while ( (iElapsedTime - iCurrentTime) < inNum);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
