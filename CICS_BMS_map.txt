@@ -14,19 +14,19 @@ EMPMAP1  DFHMDI SIZE=(24,80),							X
 ******************************************************************************
          DFHMDF POS=(1,1),							X
 		    LENGTH=7,							X
-			ATTRB=(NORM,PROT),					X
-			COLOR=BLUE,						X
-			INITIAL='EMPMAP1'
+		    ATTRB=(NORM,PROT),					        X
+		    COLOR=BLUE,						        X
+		    INITIAL='EMPMAP1'
 		 DFHMDF POS=(1,20),						X
 		    LENGTH=15,							X
 			ATTRB=(NORM,PROT),					X
 			COLOR=GREEN,						X
 			INITIAL='EMPLOYEE REPORT'
-TRANSID	 DFHMDF POS=(1,76),							X
-             LENGTH=4,								X
-			ATTRB=(NORM,PROT),					X
-			COLOR=BLUE,						X
-			INITIAL='XXXX'		
+TRANSID	 DFHMDF POS=(1,76),					X
+             LENGTH=4,						X
+	     ATTRB=(NORM,PROT),					                X
+	     COLOR=BLUE,						        X
+	     INITIAL='XXXX'		
 ******************************************************************************
          DFHMDF POS=(3,1),							X
               LENGTH=71,							X
