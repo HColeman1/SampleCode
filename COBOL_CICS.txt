@@ -1,6 +1,6 @@
 
-      *This COBOL code (with included CICS) goes with the BMS mapset in this
-      *folder. It provides the back-end logic to the maps to allow 
+      *This COBOL/CICS code goes with the BMS_mapset file.
+      * It provides the back-end logic to the maps to allow 
       *administrators to add, edit, or delete student information.	  
 
 
