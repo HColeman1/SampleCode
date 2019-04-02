@@ -1,0 +1,27 @@
+'''
+This program takes as input a string of text entered by the user
+and outputs that text as a Brainfuck program.
+Author: Hunter Coleman
+Date Written: January 2019
+'''
+
+letters = input("Please enter the string of text you want to convert to the Brainf**k language:\n")
+
+print("+++++++[>++++++++++<-]>")
+
+for i in letters:
+    if ord(i) > 70:
+        the_plusses = (ord(i)%70)
+        print("+" * the_plusses)
+        print(".")
+        print("-" * the_plusses)
+
+    elif ord(i) == 70:
+        print(".")
+        continue
+    else:
+        the_minuses = (70 - ord(i))
+        print("-" * the_minuses)
+        print(".")
+        print("+" * the_minuses)
+        
