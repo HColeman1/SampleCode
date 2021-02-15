@@ -1,7 +1,7 @@
       *This program allows you to add new vendors to an index file.
       *For demonstration purposes, only ID number, name, and zip has been included.
       *Adding additional fields as needed is assumed trivial.	  
-	   IDENTIFICATION DIVISION.
+       IDENTIFICATION DIVISION.
        PROGRAM-ID. VNDNEW02.
        ENVIRONMENT DIVISION.
        INPUT-OUTPUT SECTION.
@@ -16,9 +16,9 @@
        FD VENDOR-FILE
            LABEL RECORDS ARE STANDARD.
        01 VENDOR-RECORD.
-           05 VENDOR-NUMBER PIC 9(5).
-           05 VENDOR-NAME PIC X(30).
-           05 VENDOR-ZIP PIC 9(5).
+           05 VENDOR-NUMBER PIC   9(5).
+           05 VENDOR-NAME   PIC   X(30).
+           05 VENDOR-ZIP    PIC   9(5).
 
        WORKING-STORAGE SECTION.
        01 VENDOR-NUMBER-FIELD PIC Z(5).
