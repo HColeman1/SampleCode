@@ -1,0 +1,72 @@
+/* IBM Rexx panel that allows the user to send messages to other user(s) in a more user-friendly way */
+)PANEL                                                                 
+)ATTR                                                                  
+. TYPE(PT)                          
+% TYPE(ET)                         
++ TYPE(NT)                           
+_ TYPE(NEF)                         
+$ TYPE(AB)                          
+@ TYPE(ABSL)                         
+)ABC desc(Menu)                                                        
+PDC DESC('Send') ACTION RUN(SEND)                                      
+PDC DESC('End') ACTION RUN(END)                                        
+PDC DESC('Cancel') ACTION RUN(CANCEL)                                  
+)ABCINIT                                                               
+.zvars = 'MENUX'                                                       
+)ABC DESC(Help)                                                        
+PDC DESC('Help...')                                           
+ACTION RUN(HELP)                                                       
+)ABCINIT                                                               
+.ZVARS = HELPX                                                         
+.RESP = ENTER                       
+)BODY                                                                  
++$ Menu $ Help +                                                       
+@--------------------------------------------------------------------+ 
+.TSO Messaging Panel                          
+%===>_ZCMD +                                                           
++Primary Recipient (required) :_tsou1  +                                             
++Second Recipient  (optional) :_tsou2  +                                             
++Enter your message on the line below                                           
++Message  :_msg                                                                                              + 
++Choose the level of importance for this message (1 or 2)
++1: If recipient is not logged on, then discard the message.
++2: If the recipient is not logged on, then save the message until they can read it.
++Importance Level:_msglvl +
+)PROC                                                                  
+*REXX(*,msg,tsou1)                                                  
+Trace O                                                                
+Upper zcmd                                                             
+cpos = "'ZCMD'"                                                        
+if msg = "" then do                                                    
+  say 'Message field is required.'                                     
+end                                                                    
+if tsou1 = "" then do                                                   
+  say 'At least one recipient is required'                                    
+  rc = 8                                                               
+end                                                                    
+if msglvl \= "1" | msglvl \= "2" then do
+   say 'Invalid message level. Must be either 1 or 2
+   rc = 8
+end    
+select 
+when(zcmd = 'SEND' & msg \= "" & tsou1 \= " " & tsou2 \= " " & msglvl = '2') then 
+  say "Sending to two recipients. Marked as important." 
+  ADDRESS TSO "SEND  '"msg"' USER(tsou1,tsou2) WAIT" 
+when(zcmd = 'SEND' & msg \= "" & tsou1 \= " " & tsou2 \= " " & msglvl = '1') then 
+  say "Sending to two recipients. Marked as non-important." 
+  ADDRESS TSO "SEND  '"msg"' USER(tsou1,tsou2) NOW NOWAIT" 
+when(zcmd = 'SEND' & msg \= "" & tsou1 \= " " & tsou2 = " " & msglvl = '2') then 
+  say "Sending to one recipient. Marked as important." 
+  ADDRESS TSO "SEND  '"msg"' USER(tsou1) WAIT" 
+when(zcmd = 'SEND' & msg \= "" & tsou1 \= " " & tsou2 = " " & msglvl = '1') then 
+  say "Sending to one recipient. Marked as non-important." 
+  ADDRESS TSO "SEND  '"msg"' USER(tsou1) NOW NOWAIT" 
+otherwise 
+  say "No message sent" 
+end                                                        
+if zcmd = 'Cancel' then do                                            
+  say 'Bye'                                                    
+end                                                                   
+*ENDREXX                                                               
+                                                                       
+)END                                                 
