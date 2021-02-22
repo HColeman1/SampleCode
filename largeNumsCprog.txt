@@ -1,0 +1,114 @@
+/*****************************************************
+*
+* This program uses malloc to dynamically allocate memory and
+* demonstrate the statistical concept of the law of large numbers.
+* The larger the size of the array of random numbers the user creates,
+* then the closer the average random number will be to the median.
+
+*****************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+
+float average = 0.0;
+
+void swap(int *p,int *q) {
+   int t;
+
+
+   t=*p;
+   *p=*q;
+   *q=t;
+}
+
+void sort(int a[],int n) {
+   int k,j,temp;
+
+   for(k = 0;k < n-1;k++) {
+      for(j = 0;j < n-k-1;j++) {
+         if(a[j] > a[j+1])
+            swap(&a[j],&a[j+1]);
+      }
+   }
+}
+
+
+
+
+int main()
+{
+  int i, aSize;
+  int * ranArr;
+  time_t t;
+
+  double total = 0;
+  int biggest, smallest;
+  float average;
+
+  srand(time(&t));
+
+  printf("How large would you like the array of random numbers to be?\n");
+  scanf(" %d", &aSize);
+
+  //allocate array
+
+  ranArr = (int *) malloc(aSize * sizeof(int));
+
+
+  if(!ranArr){
+     printf("Array allocation failed\n");
+     exit(1);
+  }else{
+  printf("Successfully allocated %d random numbers between the values of 1 and 1000\n",aSize);
+  }
+  
+  //Assign random numbers (1 to 1000) to each element of the array
+  for (i = 0; i < aSize; i++)
+   {
+     ranArr[i] = (rand() % 1000) + 1;
+   }
+   biggest = 0;
+   smallest = 1000;
+  
+  for (i = 0; i < aSize; i++)
+    {
+     total += ranArr[i];
+     if (ranArr[i] > biggest)
+       {
+         biggest = ranArr[i];
+       }
+     if (ranArr[i] < smallest)
+        {
+          smallest = ranArr[i];
+    }
+}
+
+average = ((float)total)/((float)aSize);
+
+printf("The biggest number is %d.\n",biggest);
+printf("The smallest number is %d.\n",smallest);
+printf("The average of the numbers is %.2f.\n",average);
+
+
+   int n = aSize;
+   int sum,k;
+
+   sort(ranArr,n);
+
+   if(n % 2 != 0){
+     n = (n+1) / 2 - 1;      // -1 as array indexing in C starts from 0
+
+     printf("The median is:  %d\n ", ranArr[n]);
+   }else{
+    n = (n+1) / 2 - 1;      // -1 as array indexing in C starts from 0
+
+   average = (float)(ranArr[n] + ranArr[n+1])/2;
+   printf("The median is: %0.1f\n",average);
+
+}
+
+free(ranArr);
+return 0;
+}
+                                  
